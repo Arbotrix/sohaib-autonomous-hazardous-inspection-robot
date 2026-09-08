@@ -2,359 +2,432 @@
 <sdf version="1.6">
   <world name="hazardous_facility">
 
-    <!-- Lighting -->
+    <!-- ========================= -->
+    <!-- LIGHTING & GROUND         -->
+    <!-- ========================= -->
+
     <include>
       <uri>model://sun</uri>
     </include>
 
-    <!-- Ground -->
     <include>
       <uri>model://ground_plane</uri>
     </include>
 
     <!-- ========================= -->
-    <!-- FACILITY WALLS             -->
+    <!-- FACILITY WALLS            -->
+    <!-- 16m x 12m                 -->
     <!-- ========================= -->
 
-    <!-- North wall -->
     <model name="wall_north">
       <static>true</static>
-      <pose>0 5 1 0 0 0</pose>
+      <pose>0 6 1 0 0 0</pose>
       <link name="link">
         <collision name="collision">
-          <geometry>
-            <box>
-              <size>12 0.2 2</size>
-            </box>
-          </geometry>
+          <geometry><box><size>16 0.2 2</size></box></geometry>
         </collision>
         <visual name="visual">
-          <geometry>
-            <box>
-              <size>12 0.2 2</size>
-            </box>
-          </geometry>
+          <geometry><box><size>16 0.2 2</size></box></geometry>
+          <material><ambient>0.25 0.25 0.28 1</ambient></material>
         </visual>
       </link>
     </model>
 
-    <!-- South wall -->
     <model name="wall_south">
       <static>true</static>
-      <pose>0 -5 1 0 0 0</pose>
+      <pose>0 -6 1 0 0 0</pose>
       <link name="link">
         <collision name="collision">
-          <geometry>
-            <box>
-              <size>12 0.2 2</size>
-            </box>
-          </geometry>
+          <geometry><box><size>16 0.2 2</size></box></geometry>
         </collision>
         <visual name="visual">
-          <geometry>
-            <box>
-              <size>12 0.2 2</size>
-            </box>
-          </geometry>
+          <geometry><box><size>16 0.2 2</size></box></geometry>
+          <material><ambient>0.25 0.25 0.28 1</ambient></material>
         </visual>
       </link>
     </model>
 
-    <!-- East wall -->
     <model name="wall_east">
       <static>true</static>
-      <pose>6 0 1 0 0 0</pose>
+      <pose>8 0 1 0 0 0</pose>
       <link name="link">
         <collision name="collision">
-          <geometry>
-            <box>
-              <size>0.2 10 2</size>
-            </box>
-          </geometry>
+          <geometry><box><size>0.2 12 2</size></box></geometry>
         </collision>
         <visual name="visual">
-          <geometry>
-            <box>
-              <size>0.2 10 2</size>
-            </box>
-          </geometry>
+          <geometry><box><size>0.2 12 2</size></box></geometry>
+          <material><ambient>0.25 0.25 0.28 1</ambient></material>
         </visual>
       </link>
     </model>
 
-    <!-- West wall -->
     <model name="wall_west">
       <static>true</static>
-      <pose>-6 0 1 0 0 0</pose>
+      <pose>-8 0 1 0 0 0</pose>
       <link name="link">
         <collision name="collision">
-          <geometry>
-            <box>
-              <size>0.2 10 2</size>
-            </box>
-          </geometry>
+          <geometry><box><size>0.2 12 2</size></box></geometry>
         </collision>
         <visual name="visual">
-          <geometry>
-            <box>
-              <size>0.2 10 2</size>
-            </box>
-          </geometry>
+          <geometry><box><size>0.2 12 2</size></box></geometry>
+          <material><ambient>0.25 0.25 0.28 1</ambient></material>
         </visual>
       </link>
     </model>
+
     <!-- ========================= -->
-    <!-- INDUSTRIAL STORAGE TANKS  -->
+    <!-- STORAGE TANKS              -->
     <!-- ========================= -->
 
-    <!-- Tank 1 -->
     <model name="storage_tank_1">
       <static>true</static>
-      <pose>-3 2 1 0 0 0</pose>
-
+      <pose>-5 2.5 1.25 0 0 0</pose>
       <link name="link">
-
         <collision name="collision">
-          <geometry>
-            <cylinder>
-              <radius>0.8</radius>
-              <length>2.0</length>
-            </cylinder>
-          </geometry>
+          <geometry><cylinder><radius>1.0</radius><length>2.5</length></cylinder></geometry>
         </collision>
-
         <visual name="visual">
-          <geometry>
-            <cylinder>
-              <radius>0.8</radius>
-              <length>2.0</length>
-            </cylinder>
-          </geometry>
+          <geometry><cylinder><radius>1.0</radius><length>2.5</length></cylinder></geometry>
+          <material>
+            <ambient>0.15 0.35 0.65 1</ambient>
+            <diffuse>0.15 0.35 0.65 1</diffuse>
+          </material>
         </visual>
-
       </link>
     </model>
 
-    <!-- Tank 2 -->
     <model name="storage_tank_2">
       <static>true</static>
-      <pose>2 2 1 0 0 0</pose>
-
+      <pose>-1.8 2.5 1.25 0 0 0</pose>
       <link name="link">
-
         <collision name="collision">
-          <geometry>
-            <cylinder>
-              <radius>0.8</radius>
-              <length>2.0</length>
-            </cylinder>
-          </geometry>
+          <geometry><cylinder><radius>1.0</radius><length>2.5</length></cylinder></geometry>
         </collision>
-
         <visual name="visual">
-          <geometry>
-            <cylinder>
-              <radius>0.8</radius>
-              <length>2.0</length>
-            </cylinder>
-          </geometry>
+          <geometry><cylinder><radius>1.0</radius><length>2.5</length></cylinder></geometry>
+          <material>
+            <ambient>0.65 0.20 0.10 1</ambient>
+            <diffuse>0.65 0.20 0.10 1</diffuse>
+          </material>
         </visual>
-
       </link>
     </model>
-    <!-- ========================= -->
-    <!-- INDUSTRIAL PIPELINES      -->
-    <!-- ========================= -->
 
-    <!-- Pipeline 1 - horizontal -->
-    <model name="pipeline_1">
+    <model name="storage_tank_3">
       <static>true</static>
-      <pose>-3 0.5 1.5 0 1.5708 0</pose>
-
+      <pose>2.2 3.0 1.5 0 0 0</pose>
       <link name="link">
-
         <collision name="collision">
-          <geometry>
-            <cylinder>
-              <radius>0.15</radius>
-              <length>3.0</length>
-            </cylinder>
-          </geometry>
+          <geometry><cylinder><radius>1.15</radius><length>3.0</length></cylinder></geometry>
         </collision>
-
         <visual name="visual">
-          <geometry>
-            <cylinder>
-              <radius>0.15</radius>
-              <length>3.0</length>
-            </cylinder>
-          </geometry>
+          <geometry><cylinder><radius>1.15</radius><length>3.0</length></cylinder></geometry>
+          <material>
+            <ambient>0.55 0.55 0.58 1</ambient>
+            <diffuse>0.55 0.55 0.58 1</diffuse>
+          </material>
         </visual>
-
       </link>
     </model>
 
-    <!-- Pipeline 2 - horizontal -->
-    <model name="pipeline_2">
+    <model name="storage_tank_4">
       <static>true</static>
-      <pose>1.5 0.5 1.2 0 1.5708 0</pose>
-
+      <pose>5.2 1.5 1.0 0 0 0</pose>
       <link name="link">
-
         <collision name="collision">
-          <geometry>
-            <cylinder>
-              <radius>0.15</radius>
-              <length>2.5</length>
-            </cylinder>
-          </geometry>
+          <geometry><cylinder><radius>0.75</radius><length>2.0</length></cylinder></geometry>
         </collision>
-
         <visual name="visual">
-          <geometry>
-            <cylinder>
-              <radius>0.15</radius>
-              <length>2.5</length>
-            </cylinder>
-          </geometry>
+          <geometry><cylinder><radius>0.75</radius><length>2.0</length></cylinder></geometry>
+          <material>
+            <ambient>0.70 0.55 0.08 1</ambient>
+            <diffuse>0.70 0.55 0.08 1</diffuse>
+          </material>
         </visual>
-
       </link>
     </model>
 
-    <!-- Pipeline 3 - vertical -->
-    <model name="pipeline_3">
-      <static>true</static>
-      <pose>4 -1 1.0 0 0 0</pose>
-
-      <link name="link">
-
-        <collision name="collision">
-          <geometry>
-            <cylinder>
-              <radius>0.15</radius>
-              <length>2.0</length>
-            </cylinder>
-          </geometry>
-        </collision>
-
-        <visual name="visual">
-          <geometry>
-            <cylinder>
-              <radius>0.15</radius>
-              <length>2.0</length>
-            </cylinder>
-          </geometry>
-        </visual>
-
-      </link>
-    </model>
     <!-- ========================= -->
-    <!-- ROBOT HOME / CHARGING BASE -->
+    <!-- PIPE RACKS / PIPELINES    -->
     <!-- ========================= -->
 
-    <!-- Charging pad -->
+    <!-- Main raised pipeline -->
+    <model name="pipeline_main">
+      <static>true</static>
+      <pose>-1.5 0.5 2.2 0 1.5708 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><cylinder><radius>0.20</radius><length>7.0</length></cylinder></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><cylinder><radius>0.20</radius><length>7.0</length></cylinder></geometry>
+          <material>
+            <ambient>0.70 0.70 0.72 1</ambient>
+            <diffuse>0.70 0.70 0.72 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Second pipeline -->
+    <model name="pipeline_secondary">
+      <static>true</static>
+      <pose>3.8 -0.2 1.8 0 1.5708 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><cylinder><radius>0.18</radius><length>5.0</length></cylinder></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><cylinder><radius>0.18</radius><length>5.0</length></cylinder></geometry>
+          <material>
+            <ambient>0.75 0.65 0.10 1</ambient>
+            <diffuse>0.75 0.65 0.10 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Vertical process pipe -->
+    <model name="pipeline_vertical">
+      <static>true</static>
+      <pose>6.0 -1.8 1.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><cylinder><radius>0.22</radius><length>3.0</length></cylinder></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><cylinder><radius>0.22</radius><length>3.0</length></cylinder></geometry>
+          <material>
+            <ambient>0.55 0.55 0.58 1</ambient>
+            <diffuse>0.55 0.55 0.58 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Pipe supports -->
+    <model name="pipe_support_1">
+      <static>true</static>
+      <pose>-4.5 0.5 1.1 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>0.25 0.25 2.2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>0.25 0.25 2.2</size></box></geometry>
+          <material><ambient>0.30 0.30 0.32 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="pipe_support_2">
+      <static>true</static>
+      <pose>1.5 0.5 1.1 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>0.25 0.25 2.2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>0.25 0.25 2.2</size></box></geometry>
+          <material><ambient>0.30 0.30 0.32 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="pipe_support_3">
+      <static>true</static>
+      <pose>5.0 -0.2 0.9 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>0.25 0.25 1.8</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>0.25 0.25 1.8</size></box></geometry>
+          <material><ambient>0.30 0.30 0.32 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ========================= -->
+    <!-- CONTROL / PROCESS BUILDING -->
+    <!-- ========================= -->
+
+    <model name="control_building">
+      <static>true</static>
+      <pose>-5.5 -3.5 1.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>3.0 2.0 2.0</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>3.0 2.0 2.0</size></box></geometry>
+          <material>
+            <ambient>0.18 0.38 0.22 1</ambient>
+            <diffuse>0.18 0.38 0.22 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Small process unit -->
+    <model name="process_unit">
+      <static>true</static>
+      <pose>1.0 -3.2 0.75 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>2.0 1.4 1.5</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>2.0 1.4 1.5</size></box></geometry>
+          <material>
+            <ambient>0.35 0.35 0.38 1</ambient>
+            <diffuse>0.35 0.35 0.38 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ========================= -->
+    <!-- SAFETY BARRIERS           -->
+    <!-- ========================= -->
+
+    <model name="barrier_1">
+      <static>true</static>
+      <pose>4.0 4.5 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>4.0 0.15 1.0</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>4.0 0.15 1.0</size></box></geometry>
+          <material>
+            <ambient>0.85 0.55 0.05 1</ambient>
+            <diffuse>0.85 0.55 0.05 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="barrier_2">
+      <static>true</static>
+      <pose>-1.0 -0.8 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>2.5 0.15 1.0</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>2.5 0.15 1.0</size></box></geometry>
+          <material>
+            <ambient>0.85 0.55 0.05 1</ambient>
+            <diffuse>0.85 0.55 0.05 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ========================= -->
+    <!-- HAZARD ZONE MARKER        -->
+    <!-- ========================= -->
+
+    <model name="hazard_zone">
+      <static>true</static>
+      <pose>5.0 -1.5 0.02 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box><size>2.5 2.0 0.04</size></box>
+          </geometry>
+          <material>
+            <ambient>0.65 0.08 0.05 1</ambient>
+            <diffuse>0.65 0.08 0.05 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ========================= -->
+    <!-- HOME / CHARGING STATION   -->
+    <!-- ========================= -->
+
     <model name="charging_pad">
       <static>true</static>
-      <pose>4.2 -3.5 0.05 0 0 0</pose>
-
+      <pose>5.8 -4.2 0.05 0 0 0</pose>
       <link name="link">
         <collision name="collision">
-          <geometry>
-            <box>
-              <size>1.5 1.2 0.1</size>
-            </box>
-          </geometry>
+          <geometry><box><size>2.0 1.5 0.1</size></box></geometry>
         </collision>
-
         <visual name="visual">
-          <geometry>
-            <box>
-              <size>1.5 1.2 0.1</size>
-            </box>
-          </geometry>
+          <geometry><box><size>2.0 1.5 0.1</size></box></geometry>
+          <material>
+            <ambient>0.05 0.65 0.25 1</ambient>
+            <diffuse>0.05 0.65 0.25 1</diffuse>
+          </material>
         </visual>
       </link>
     </model>
 
-    <!-- Charging unit / docking station -->
     <model name="charging_unit">
       <static>true</static>
-      <pose>4.2 -4.15 0.75 0 0 0</pose>
-
+      <pose>5.8 -5.0 0.85 0 0 0</pose>
       <link name="link">
-
         <collision name="collision">
-          <geometry>
-            <box>
-              <size>1.5 0.25 1.5</size>
-            </box>
-          </geometry>
+          <geometry><box><size>2.0 0.25 1.7</size></box></geometry>
         </collision>
-
         <visual name="visual">
-          <geometry>
-            <box>
-              <size>1.5 0.25 1.5</size>
-            </box>
-          </geometry>
+          <geometry><box><size>2.0 0.25 1.7</size></box></geometry>
+          <material>
+            <ambient>0.05 0.40 0.18 1</ambient>
+            <diffuse>0.05 0.40 0.18 1</diffuse>
+          </material>
         </visual>
-
       </link>
     </model>
+
     <!-- ========================= -->
-    <!-- INSPECTION POINT MARKERS  -->
+    <!-- INSPECTION POINTS         -->
     <!-- ========================= -->
 
-    <!-- Inspection Point 1 -->
     <model name="inspection_point_1">
       <static>true</static>
-      <pose>-3 0.8 0.03 0 0 0</pose>
-
+      <pose>-5 0.5 0.03 0 0 0</pose>
       <link name="link">
         <visual name="visual">
-          <geometry>
-            <cylinder>
-              <radius>0.35</radius>
-              <length>0.05</length>
-            </cylinder>
-          </geometry>
+          <geometry><cylinder><radius>0.40</radius><length>0.05</length></cylinder></geometry>
+          <material>
+            <ambient>0.05 0.65 0.20 1</ambient>
+            <diffuse>0.05 0.65 0.20 1</diffuse>
+          </material>
         </visual>
       </link>
     </model>
 
-    <!-- Inspection Point 2 -->
     <model name="inspection_point_2">
       <static>true</static>
-      <pose>2 0.8 0.03 0 0 0</pose>
-
+      <pose>2.0 0.5 0.03 0 0 0</pose>
       <link name="link">
         <visual name="visual">
-          <geometry>
-            <cylinder>
-              <radius>0.35</radius>
-              <length>0.05</length>
-            </cylinder>
-          </geometry>
+          <geometry><cylinder><radius>0.40</radius><length>0.05</length></cylinder></geometry>
+          <material>
+            <ambient>0.95 0.65 0.05 1</ambient>
+            <diffuse>0.95 0.65 0.05 1</diffuse>
+          </material>
         </visual>
       </link>
     </model>
 
-    <!-- Inspection Point 3 -->
     <model name="inspection_point_3">
       <static>true</static>
-      <pose>4 -1.5 0.03 0 0 0</pose>
-
+      <pose>5.0 -1.5 0.04 0 0 0</pose>
       <link name="link">
         <visual name="visual">
-          <geometry>
-            <cylinder>
-              <radius>0.35</radius>
-              <length>0.05</length>
-            </cylinder>
-          </geometry>
+          <geometry><cylinder><radius>0.40</radius><length>0.05</length></cylinder></geometry>
+          <material>
+            <ambient>0.85 0.10 0.05 1</ambient>
+            <diffuse>0.85 0.10 0.05 1</diffuse>
+          </material>
         </visual>
       </link>
     </model>
+
   </world>
 </sdf>

@@ -31,12 +31,12 @@ def generate_launch_description():
 
         DeclareLaunchArgument(
             'x_pose',
-            default_value='4.2'
+            default_value='5.8'
         ),
 
         DeclareLaunchArgument(
             'y_pose',
-            default_value='-3.5'
+            default_value='-4.2'
         ),
 
         DeclareLaunchArgument(
