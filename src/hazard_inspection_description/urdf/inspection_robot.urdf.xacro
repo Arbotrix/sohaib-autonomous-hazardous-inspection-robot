@@ -37,12 +37,12 @@
       <geometry>
         <box size="0.8 0.6 0.25"/>
       </geometry>
-      <origin xyz="0 0 0.32"/>
+      <origin xyz="0 0 0.445"/>
     </collision>
 
     <inertial>
       <mass value="10.0"/>
-      <origin xyz="0 0 0.32"/>
+      <origin xyz="0 0 0.08"/>
       <inertia
         ixx="0.75"
         ixy="0.0"
@@ -148,35 +148,78 @@
 
 
   <!-- ========================= -->
-  <!-- FRONT CASTER              -->
+  <!-- ========================= -->
+  <!-- PASSIVE SUPPORT WHEELS   -->
   <!-- ========================= -->
 
-  <link name="front_caster_link">
-
+  <link name="front_support_wheel_link">
     <visual>
       <geometry>
-        <sphere radius="0.08"/>
+        <cylinder radius="0.08" length="0.06"/>
       </geometry>
-      <origin xyz="0 0 0"/>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <material name="robot_dark"/>
+    </visual>
+
+ 
+
+    <inertial>
+      <mass value="0.2"/>
+      <inertia
+        ixx="0.001"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="0.001"
+        iyz="0.0"
+        izz="0.001"/>
+    </inertial>
+  </link>
+
+  <joint name="front_support_wheel_joint"
+         type="fixed">
+    <parent link="base_link"/>
+    <child link="front_support_wheel_link"/>
+    <origin xyz="0.32 0 0.08"/>
+    <axis xyz="0 1 0"/>
+    <dynamics damping="0.05" friction="0.01"/>
+  </joint>
+
+
+  <link name="rear_support_wheel_link">
+    <visual>
+      <geometry>
+        <cylinder radius="0.08" length="0.06"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
       <material name="robot_dark"/>
     </visual>
 
     <collision>
       <geometry>
-        <sphere radius="0.08"/>
+        <cylinder radius="0.08" length="0.06"/>
       </geometry>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
     </collision>
 
+    <inertial>
+      <mass value="0.2"/>
+      <inertia
+        ixx="0.001"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="0.001"
+        iyz="0.0"
+        izz="0.001"/>
+    </inertial>
   </link>
 
-  <joint name="front_caster_joint"
+  <joint name="rear_support_wheel_joint"
          type="fixed">
-
     <parent link="base_link"/>
-    <child link="front_caster_link"/>
-
-    <origin xyz="0.32 0 0.08"/>
-
+    <child link="rear_support_wheel_link"/>
+    <origin xyz="-0.32 0 0.08"/>
+    <axis xyz="0 1 0"/>
+    <dynamics damping="0.05" friction="0.01"/>
   </joint>
 
 
