@@ -5,7 +5,6 @@ from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch_ros.actions import Node
 
 
 def generate_launch_description():
@@ -14,7 +13,9 @@ def generate_launch_description():
         'hazard_inspection_description'
     )
 
-    gazebo_pkg = get_package_share_directory('gazebo_ros')
+    gazebo_pkg = get_package_share_directory(
+        'gazebo_ros'
+    )
 
     world_file = os.path.join(
         os.path.expanduser('~/arbotrix_capstone'),
@@ -30,7 +31,7 @@ def generate_launch_description():
 
     return LaunchDescription([
 
-        # Start Gazebo with ROS interfaces
+        # Gazebo + hazardous facility
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(
                 os.path.join(
@@ -44,29 +45,11 @@ def generate_launch_description():
             }.items()
         ),
 
-        # Spawn our custom inspection robot
+        # Spawn inspection robot
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(
                 spawn_robot_launch
             )
-        ),
-
-        # Start SLAM Toolbox
-        Node(
-            package='slam_toolbox',
-            executable='async_slam_toolbox_node',
-            name='slam_toolbox',
-            output='screen',
-            parameters=[{
-                'use_sim_time': True,
-                'base_frame': 'base_link',
-                'odom_frame': 'odom',
-                'map_frame': 'map',
-                'scan_topic': '/scan',
-                'mode': 'mapping',
-                'resolution': 0.05,
-                'max_laser_range': 10.0
-            }]
         )
 
     ])
