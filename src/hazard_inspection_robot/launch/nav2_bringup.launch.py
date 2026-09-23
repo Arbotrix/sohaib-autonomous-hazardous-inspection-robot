@@ -64,7 +64,12 @@ def generate_launch_description():
             parameters=[
                 nav2_params,
                 {
-                    'use_sim_time': use_sim_time
+                    'use_sim_time': use_sim_time,
+                    'set_initial_pose': True,
+                    'always_reset_initial_pose': True,
+                    'initial_pose.x': 5.8,
+                    'initial_pose.y': -3.8,
+                    'initial_pose.yaw': 1.43
                 }
             ]
         ),

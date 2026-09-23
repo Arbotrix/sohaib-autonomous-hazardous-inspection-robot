@@ -26,6 +26,7 @@ def generate_launch_description():
     x_pose = LaunchConfiguration('x_pose')
     y_pose = LaunchConfiguration('y_pose')
     z_pose = LaunchConfiguration('z_pose')
+    yaw_pose = LaunchConfiguration('yaw_pose')
 
     return LaunchDescription([
 
@@ -36,12 +37,17 @@ def generate_launch_description():
 
         DeclareLaunchArgument(
             'y_pose',
-            default_value='-4.2'
+            default_value='-3.8'
         ),
 
         DeclareLaunchArgument(
             'z_pose',
             default_value='0.3'
+        ),
+
+        DeclareLaunchArgument(
+            'yaw_pose',
+            default_value='1.43'
         ),
 
         Node(
@@ -51,7 +57,8 @@ def generate_launch_description():
             output='screen',
             parameters=[
                 {
-                    'robot_description': robot_description
+                    'robot_description': robot_description,
+                    'use_sim_time': True
                 }
             ]
         ),
@@ -69,7 +76,9 @@ def generate_launch_description():
                 '-y',
                 y_pose,
                 '-z',
-                z_pose
+                z_pose,
+                '-Y',
+                yaw_pose
             ],
             output='screen'
         )

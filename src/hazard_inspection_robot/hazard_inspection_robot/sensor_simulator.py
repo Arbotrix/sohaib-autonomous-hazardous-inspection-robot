@@ -53,11 +53,11 @@ class SensorSimulator(Node):
             return 40.0, 180.0, 5.0, 'IP1'
 
         # IP2
-        elif math.hypot(self.x - 2.0, self.y - 0.5) < 1.0:
+        elif math.hypot(self.x - 1.7557, self.y - 0.4057) < 0.8:
             return 65.0, 210.0, 25.0, 'IP2'
 
         # IP3
-        elif math.hypot(self.x - 5.0, self.y - (-1.5)) < 1.0:
+        elif math.hypot(self.x - 5.7298, self.y - (-1.7980)) < 0.8:
             return 95.0, 250.0, 80.0, 'IP3'
 
         # Normal environment

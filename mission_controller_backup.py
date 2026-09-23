@@ -46,8 +46,8 @@ class MissionController(Node):
 
         # Map-frame inspection points
         self.points = [
-            ('IP1', -5.60, 0.19),
-            ('IP2', 1.50, 0.40),
+            ('IP1', -5.20, 0.19),
+            ('IP2', 1.7557, 0.4057),
             ('IP3', 5.7298, -1.7980)
         ]
 
@@ -126,32 +126,7 @@ class MissionController(Node):
         point = self.points[self.current_point_index]
 
         if point[0] == 'IP1':
-            # Direct HOME -> IP1: confirmed demonstration route
             self.route_queue = [point]
-
-        elif point[0] == 'IP2':
-            # Safe IP1 -> IP2 corridor around the vertical obstacle
-            self.route_queue = [
-                ('WP_IP2_A', -5.60, -1.20),
-                ('WP_IP2_B', -4.50, -2.00),
-                ('WP_IP2_C', -2.50, -2.50),
-                ('WP_IP2_D', -1.20, -1.80),
-                ('WP_IP2_E', -0.40, -1.10),
-                ('WP_IP2_F',  0.50, -1.10),
-                ('WP_IP2_G',  0.95, -0.25),
-                point
-            ]
-
-        elif point[0] == 'IP3':
-            # Approach IP3 through the open lower corridor
-            self.route_queue = [
-                ('WP_IP3_A', 1.80, -1.10),
-                ('WP_IP3_B', 3.20, -1.10),
-                ('WP_IP3_C', 4.40, -1.10),
-                ('WP_IP3_D', 5.00, -0.70),
-                point
-            ]
-
         else:
             self.route_queue = [point]
 

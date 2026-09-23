@@ -353,9 +353,6 @@
       <static>true</static>
       <pose>5.8 -4.2 0.05 0 0 0</pose>
       <link name="link">
-        <collision name="collision">
-          <geometry><box><size>2.0 1.5 0.1</size></box></geometry>
-        </collision>
         <visual name="visual">
           <geometry><box><size>2.0 1.5 0.1</size></box></geometry>
           <material>
